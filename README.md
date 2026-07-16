@@ -29,11 +29,8 @@ House prices are influenced by many factors such as the number of rooms, bathroo
 Features used in the model include:
 
 * `Rooms`
-* `Bathroom`
+* `Properityacont`
 * `Distance`
-* `Car`
-* `BuildingArea`
-* `Landsize`
 
 Target:
 
@@ -74,12 +71,13 @@ import joblib
 
 ## 7. Model Performance
 
-Evaluation metrics:
 
-* **Mean Squared Error (MSE):** Computed on the test set.
-* **R² Score:** Measures how much variance in house prices is explained by the model.
+## Model Performance
 
-The model achieved a reasonable baseline performance and demonstrated the full regression workflow.
+- Mean Squared Error (MSE): 121,211,553,932.57
+- R² Score: 0.6462
+
+The Linear Regression model explained approximately 64.6% of the variation in house prices. This provides a solid baseline model, and future work will focus on feature engineering and experimenting with more advanced regression algorithms to improve predictive performance.
 
 ---
 
