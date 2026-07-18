@@ -168,3 +168,59 @@ Future improvements I plan to add:
 ## About Me
 
 I am building my Machine Learning portfolio by implementing projects from scratch, focusing on understanding the workflow, evaluating models properly, and writing production-style code rather than only completing courses.
+
+# Development Process
+
+This project was built as part of my Machine Learning learning journey.
+
+Instead of relying on AI to build the project for me, I followed a learning-first approach.
+
+### Version 1 (Built by Me)
+
+I wrote the first version of the project completely on my own. My workflow was:
+
+1. Import libraries
+2. Load the dataset
+3. Check for missing values
+4. Clean the data
+5. Check for duplicate values
+6. Explore feature correlations
+7. Select features
+8. Split the dataset into training and testing sets
+9. Train a Linear Regression model
+10. Make predictions
+11. Interpret the model coefficients
+12. Predict the price of a new house
+13. Evaluate the model
+
+During this first version, I made several mistakes, such as using only one feature for training, which resulted in lower model performance.
+
+### Learning and Improvement
+
+After completing the project, I used AI as a mentor and code reviewer—not as a code generator.
+
+AI helped me:
+
+* Review my code
+* Explain my mistakes
+* Improve the project structure
+* Apply better Machine Learning practices
+* Understand why some decisions were better than others
+
+I then rebuilt and improved the project based on what I had learned.
+
+### What I Learned
+
+Through this project, I gained practical experience with:
+
+* Data loading and inspection
+* Data cleaning
+* Feature selection
+* Train/Test Split
+* Linear Regression
+* Model evaluation using MSE and R² Score
+* Model interpretation
+* Making predictions on new data
+
+This project reflects my own learning process and demonstrates how I use AI to improve my understanding rather than to replace it.
+
