@@ -1,108 +1,85 @@
-# House Price Prediction using Linear Regression
+# 🏠 House Price Prediction with Linear Regression
 
-## 1. Project Overview
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange)
+![Status](https://img.shields.io/badge/Status-Baseline%20Model-green)
 
-This is one of my first end-to-end Machine Learning projects. In this project, I built a Linear Regression model to predict house prices using housing features from the Melbourne housing dataset.
-
-The goal of the project was not only to train a model, but also to practice the complete Machine Learning workflow used by ML engineers, including data loading, EDA, feature selection, model evaluation, visualization, and model saving.
-
----
-
-## 2. Dataset
-
-* **Dataset:** Melbourne Housing Dataset
-* **Target Column:** `Price`
-* **Problem Type:** Regression
-* **Rows:** ~13k+
-* **Features Used:** Numerical housing features related to property characteristics.
+An end-to-end Machine Learning project that predicts house prices from property features using the **Melbourne Housing dataset** (13,000+ rows). The goal was not only to train a model, but to practice the full workflow an ML engineer follows: loading data, EDA, feature selection, evaluation, visualization, and saving the model.
 
 ---
 
-## 3. Problem Statement
+## 📊 Results
 
-House prices are influenced by many factors such as the number of rooms, bathrooms, distance from the city, and building area. The objective of this project is to train a model that can estimate the price of a house based on these features.
+| Metric | Value |
+|--------|-------|
+| R² Score | **0.6462** |
+| Mean Squared Error (MSE) | 121,211,553,932.57 |
+| Root Mean Squared Error (RMSE) | ≈ 348,000 |
+
+The model explains about **64.6%** of the variation in house prices. This is a solid baseline. The RMSE (the square root of the MSE) shows that predictions are typically off by roughly 348K, which leaves clear room for improvement with better features and stronger models.
+
+<!-- Add your plots here. Make sure the file names match your images/ folder. -->
+### Actual vs. Predicted Prices
+
+![Actual vs Predicted](images/actual_vs_predicted.png)
+
+### Regression Plot
+
+![Regression Plot](images/regression_plot.png)
 
 ---
 
-## 4. Features
+## 🎯 Problem Statement
 
-Features used in the model include:
+House prices depend on many factors, such as the number of rooms, distance from the city center, and the size of the property. The objective is to train a model that estimates the price of a house from these features.
 
-* `Rooms`
-* `Properityacont`
-* `Distance`
-
-Target:
-
-* `Price`
+- **Problem type:** Regression
+- **Target column:** `Price`
 
 ---
 
-## 5. Libraries Used
+## 📁 Dataset
 
-```python
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
+- **Source:** Melbourne Housing dataset (`MELBOURNE_HOUSE_PRICES_LESS.csv`)
+- **Rows:** ~13,000+
+- **Features used:** numerical property features
 
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
+| Feature | Description |
+|---------|-------------|
+| `Rooms` | Number of rooms |
+| `Distance` | Distance from the city center |
+| `Propertycount` | Number of properties in the suburb |
 
-import joblib
+<!-- Add every other feature you used in training, so this table matches your example prediction. -->
+
+---
+
+## 🔄 Workflow
+
+1. Load the dataset
+2. Exploratory Data Analysis (EDA)
+3. Check missing values and duplicates
+4. Analyze feature correlations
+5. Select numerical features
+6. Split into training and testing sets
+7. Train a Linear Regression model
+8. Evaluate with MSE and R²
+9. Visualize predictions
+10. Save the trained model with `joblib`
+
+---
+
+## 🛠 Tech Stack
+
+- **Language:** Python
+- **Libraries:** NumPy, Pandas, Matplotlib, scikit-learn, joblib
+- **Environment:** Jupyter Notebook
+
+---
+
+## 📂 Project Structure
+
 ```
-
----
-
-## 6. Project Workflow
-
-1. Load the dataset.
-2. Perform Exploratory Data Analysis (EDA).
-3. Check missing values and duplicates.
-4. Analyze feature correlations.
-5. Select numerical features.
-6. Split the dataset into training and testing sets.
-7. Train a Linear Regression model.
-8. Evaluate the model using MSE and R².
-9. Visualize predictions.
-10. Save the trained model using `joblib`.
-
----
-
-## 7. Model Performance
-
-
-## Model Performance
-
-- Mean Squared Error (MSE): 121,211,553,932.57
-- R² Score: 0.6462
-
-The Linear Regression model explained approximately 64.6% of the variation in house prices. This provides a solid baseline model, and future work will focus on feature engineering and experimenting with more advanced regression algorithms to improve predictive performance.
-
----
-
-## 8. Results
-
-The project successfully:
-
-* Trained a Linear Regression model.
-* Generated house price predictions.
-* Evaluated model quality using MSE and R².
-* Visualized the relationship between actual and predicted prices.
-* Saved the trained model for future use.
-
-Example prediction:
-
-```python
-new_house = [[4, 2, 6.5, 2, 180, 450]]
-prediction = model.predict(new_house)
-```
-
----
-
-## 9. Folder Structure
-
-```text
 house-price-prediction/
 │
 ├── data/
@@ -130,97 +107,96 @@ house-price-prediction/
 
 ---
 
-## 10. How to Run
+## 🚀 Getting Started
 
-### Install dependencies
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/mudather490/house-price-prediction.git
+cd house-price-prediction
+```
+
+**2. Install dependencies**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Train the model
+**3. Train the model**
 
 ```bash
 python src/train.py
 ```
 
-### Make predictions
+**4. Make predictions**
 
 ```bash
 python src/predict.py
 ```
 
+### Example: predicting a new house
+
+```python
+import joblib
+
+model = joblib.load("models/house_price_model.pkl")
+
+# Values must be in the same order as the features used in training
+new_house = [[4, 2, 6.5, 2, 180, 450]]
+prediction = model.predict(new_house)
+
+print(f"Predicted price: {prediction[0]:,.0f}")
+```
+
 ---
 
-## 11. Future Improvements
+## 🧠 Development Process
 
-Future improvements I plan to add:
+I followed a **learning-first approach** instead of relying on AI to write the project for me.
 
-* Feature engineering.
-* Handling outliers more carefully.
-* Comparing Linear Regression with Decision Tree and Random Forest models.
-* Hyperparameter tuning.
-* Building a simple prediction API with FastAPI.
-* Deploying the model to the cloud.
+**Version 1: built by me.** I wrote the first version on my own: loading and cleaning the data, checking duplicates, exploring correlations, selecting features, training the model, interpreting coefficients, and predicting a new house. I made mistakes along the way, such as training on only one feature, which gave weak performance.
+
+**Review and improvement.** After finishing, I used AI as a **mentor and code reviewer, not a code generator**. It helped me review my code, understand my mistakes, improve the project structure, and see why some decisions are better than others.
+
+**Version 2: rebuilt.** I then rebuilt the project with what I had learned: more features, a cleaner structure, and proper evaluation.
 
 ---
 
-## About Me
+## 📚 What I Learned
 
-I am building my Machine Learning portfolio by implementing projects from scratch, focusing on understanding the workflow, evaluating models properly, and writing production-style code rather than only completing courses.
+- Data loading, inspection, and cleaning
+- Feature selection and correlation analysis
+- Train/test split
+- Linear Regression and interpreting its coefficients
+- Evaluating models with MSE and R²
+- Saving and reusing a trained model
+- Organizing an ML project like production code
 
-# Development Process
+---
 
-This project was built as part of my Machine Learning learning journey.
+## ⚠️ Limitations
 
-Instead of relying on AI to build the project for me, I followed a learning-first approach.
+- Linear Regression assumes a linear relationship between features and price, which is rarely fully true for housing.
+- Outliers (very expensive properties) can pull the model's predictions off.
+- Only numerical features are used, so information such as suburb and property type is ignored.
 
-### Version 1 (Built by Me)
+---
 
-I wrote the first version of the project completely on my own. My workflow was:
+## 🔮 Future Improvements
 
-1. Import libraries
-2. Load the dataset
-3. Check for missing values
-4. Clean the data
-5. Check for duplicate values
-6. Explore feature correlations
-7. Select features
-8. Split the dataset into training and testing sets
-9. Train a Linear Regression model
-10. Make predictions
-11. Interpret the model coefficients
-12. Predict the price of a new house
-13. Evaluate the model
+- [ ] Feature engineering (including categorical features)
+- [ ] More careful outlier handling
+- [ ] Compare against Decision Tree and Random Forest models
+- [ ] Hyperparameter tuning
+- [ ] Build a prediction API with FastAPI
+- [ ] Deploy the model to the cloud
 
-During this first version, I made several mistakes, such as using only one feature for training, which resulted in lower model performance.
+---
 
-### Learning and Improvement
+## 👤 Author
 
-After completing the project, I used AI as a mentor and code reviewer—not as a code generator.
+**Mudather Kbyer**
+Learning Machine Learning by building real projects.
 
-AI helped me:
-
-* Review my code
-* Explain my mistakes
-* Improve the project structure
-* Apply better Machine Learning practices
-* Understand why some decisions were better than others
-
-I then rebuilt and improved the project based on what I had learned.
-
-### What I Learned
-
-Through this project, I gained practical experience with:
-
-* Data loading and inspection
-* Data cleaning
-* Feature selection
-* Train/Test Split
-* Linear Regression
-* Model evaluation using MSE and R² Score
-* Model interpretation
-* Making predictions on new data
-
-This project reflects my own learning process and demonstrates how I use AI to improve my understanding rather than to replace it.
-
+- GitHub: [@mudather490](https://github.com/mudather490)
+- LinkedIn: [linkedin.com/in/mudaxkbyer](https://www.linkedin.com/in/mudaxkbyer)
